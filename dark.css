@@ -1,0 +1,1105 @@
+/* Styles généraux */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #171616;
+    color: #E0E0E0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column; /* Changement clé pour empiler les éléments verticalement */
+    text-align: center;
+    background-color:#121212;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+.header-top {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: left; /* Centre horizontalement */
+}
+
+/* Logo */
+.logo {
+    margin-right: 30px; /* Garde l'espacement original */
+}
+
+.logo img {
+    height: 50px;
+}
+#viewmode {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    margin: 0;
+}
+
+#viewmode img {
+    width: 25px; /* Ajustez la taille selon vos besoins */
+    height: auto;
+    cursor: pointer;
+}
+
+/* Title Styling - maintenant en haut */
+.title {
+    width: 100%;
+    color: white ;  
+    text-align: left;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 15px 0;
+    flex-grow: 1; 
+}
+
+/* Navigation - maintenant en bas */
+.menu {
+    position: static; /* Supprime le positionnement fixe */
+    width: 100%; /* Prend toute la largeur */
+    background-color:  #121212; /* Couleur légèrement différente pour distinguer du header */
+    padding: 0; /* Suppression du padding */
+    margin-top: auto; /* Pousse le menu vers le bas */
+}
+
+/* Liste de navigation */
+.menu ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center; /* Centre les éléments du menu */
+    border-top: none; /* Supprime la ligne de séparation */
+
+}
+    
+
+/* Éléments de navigation */
+.menu > ul > li {
+    position: relative;
+    margin-right: 30px; /* Augmente l'espacement entre les éléments */
+
+}
+
+/* Liens du menu */
+.menu > ul > li > a {
+    text-decoration: none;
+     color: white; /* Garde la couleur originale */
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.menu > ul > li > a:hover {
+       color: #3700B3;
+   }
+
+/* Dropdown Menu */
+.dropdown-container {
+    position: relative;
+
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #0d0c0c;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+    border-radius: 4px;
+    padding: 10px 0;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    
+}
+
+.dropdown-container:hover .dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown li {
+    padding: 0;
+}
+
+.dropdown a {
+    text-decoration: none;
+    color: #e0e0e0;
+    display: block;
+    padding: 12px ;
+    text-align: left;
+
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.dropdown a:hover {
+    background-color: #f1f1f1;
+    color: #6dbaf7;
+}
+
+.intro {
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.exercices {
+    padding: 20px;
+}
+
+.exercice-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.exercice-card {
+    background: lightgray;
+    padding: 15px;
+    width: 180px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s;
+}
+
+.exercice-card:hover {
+    transform: scale(1.05);
+}
+
+.exercice-card img {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+/* Contenu principal */
+main {
+    padding: 25px;
+}
+
+/* Titres */
+h1, h2, h3 {
+    text-align: left;
+    font-weight: bold;
+}
+
+section {
+    background-color:  #1E1E1E;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+section h2 {
+    color: white;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+
+
+/* Tableaux */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    border: 1px solid #383838;
+    background-color: #1F1F1F;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #333333;
+    padding: 12px;
+    color: #E0E0E0;
+}
+
+thead th {
+    background-color: darkblue;
+    color: #E0E0E0;
+    font-weight: bold;
+}
+tr:nth-child(even) {
+    background-color: #252525;
+}
+
+/* Effet de survol pour améliorer l'interactivité */
+tr:hover {
+    background-color: #333333;
+}
+
+
+/* Liste Hexadécimale */
+.hex-list {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    justify-content: left;
+}
+
+.hex-list li {
+    color: white;
+    padding: 12px 18px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0a274a; 
+    color: white;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.footer-content img {
+    height: 30px;
+}
+
+.footer-bottom {
+    display: block;
+    margin-top: 8px;
+}
+footer a {
+    color: yellow;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+/* Effets spécifiques */
+.digit {
+    color: red;
+}
+
+.uppercase {
+    color: green;
+}
+
+.lowercase {
+    color: blue;
+}
+
+.plan {
+    text-align: center;
+}
+
+.site-map {
+    list-style: none;
+    padding: 0;
+}
+
+.site-map li {
+    margin: 10px 0;
+}
+
+.site-map a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.site-map a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.plan-image img {
+    max-width: 80%;
+    height: auto;
+    margin-top: 20px;
+}
+
+//
+
+.educational-content {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.educational-content h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.articles {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.articles article {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.articles article h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.articles article p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.articles article a {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.articles article a:hover {
+    background: #ff8c00;
+}
+
+
+
+
+/* Conteneur principal */
+.rubrique {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.rubrique-titre {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+/* Liste des blocs */
+.liste-blocs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+}
+
+/* Éléments individuels */
+.liste-blocs li {
+    width: 160px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.liste-blocs li:hover {
+    transform: scale(1.05);
+}
+
+/* Liens */
+.liste-blocs a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+/* Images */
+.liste-blocs img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* Contenu */
+.contenu {
+    padding: 10px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+}
+
+
+
+
+
+
+/* page Météo */
+
+/* Styles pour la page météo - Optimisé pour compléter un CSS global existant */
+
+/* Structure principale */
+.meteo-conteneur {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* Introduction */
+.meteo-intro {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.meteo-intro h2 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.meteo-intro p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Dernière ville consultée */
+.derniere-consultation {
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.derniere-consultation h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.derniere-ville-details {
+    margin-bottom: 1rem;
+}
+
+.ville-nom {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.ville-localisation {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.ville-localisation span {
+    font-weight: bold;
+}
+
+.date-consultation {
+    font-style: italic;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.derniere-ville-actions {
+    text-align: right;
+}
+
+.bouton-primaire {
+    background-color: white;
+    color: #2980b9;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.bouton-primaire:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+/* Message d'aide */
+.message-aide {
+    background-color: #f9f9f9;
+    border-left: 4px solid #3498db;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.message-aide h4 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+/* Onglets de navigation */
+.onglets-navigation {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 2rem;
+}
+
+.onglet-btn {
+    background: none;
+    border: none;
+    padding: 12px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #777;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.onglet-btn:hover {
+    color: #3498db;
+}
+
+.onglet-btn.actif {
+    color: #3498db;
+    border-bottom: 3px solid #3498db;
+}
+
+/* Conteneurs d'onglets */
+.contenu-onglet {
+    margin-bottom: 2rem;
+}
+
+/* Formulaires */
+.formulaire-meteo {
+    margin-bottom: 1rem;
+}
+
+.groupe-formulaire {
+    margin-bottom: 1.2rem;
+}
+
+.groupe-formulaire label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.groupe-formulaire select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+/* Carte interactive */
+.france-map-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#main-france-map {
+    width: 100%;
+    height: auto;
+}
+
+/* Recherche par ville */
+.recherche-ville-form {
+    margin-bottom: 1.5rem;
+}
+
+.champ-recherche {
+    display: flex;
+}
+
+.champ-recherche input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+}
+
+.bouton-recherche {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.bouton-recherche:hover {
+    background-color: #2980b9;
+}
+
+.message-erreur {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.exemples-villes {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.exemples-villes a {
+    color: #3498db;
+    margin-right: 8px;
+    text-decoration: none;
+}
+
+.exemples-villes a:hover {
+    text-decoration: underline;
+}
+
+/* Résultats météo - Partie Actuelle */
+.meteo-resultats {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.meteo-actuelle {
+    margin-bottom: 2.5rem;
+}
+
+.meteo-actuelle h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meteo-actuelle-contenu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.meteo-icone {
+    text-align: center;
+}
+
+.meteo-icone img {
+    width: 120px;
+    height: 120px;
+}
+
+.meteo-icone p {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.meteo-details {
+    flex: 1;
+    min-width: 200px;
+}
+
+.temperature-principale {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.temperature-principale .unite {
+    font-size: 2rem;
+    vertical-align: super;
+}
+
+.details-secondaires {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.detail {
+    min-width: 100px;
+}
+
+.detail .label {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 0.3rem;
+}
+
+.detail .valeur {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.meteo-details-supplementaires {
+    flex: 1;
+    min-width: 200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.detail-supp {
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 0.8rem;
+    border-radius: 6px;
+}
+
+.detail-supp .label {
+    display: block;
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 0.3rem;
+}
+
+.detail-supp .valeur {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Prévisions sur 5 jours */
+.previsions-jours {
+    margin-bottom: 2.5rem;
+}
+
+.previsions-jours h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.previsions-liste {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.prevision-jour {
+    min-width: 150px;
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.prevision-jour:hover {
+    transform: translateY(-5px);
+}
+
+.prevision-jour .jour {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.prevision-jour .date {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.prevision-jour img {
+    width: 80px;
+    height: 80px;
+    margin: 0.5rem auto;
+}
+
+.prevision-jour .temperature {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.prevision-jour .max {
+    color: #e74c3c;
+    font-weight: 700;
+}
+
+.prevision-jour .min {
+    color: #3498db;
+    font-weight: 700;
+}
+
+.prevision-jour .description {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Prévisions détaillées jour par jour */
+.meteo-journaliere {
+    margin-bottom: 2.5rem;
+}
+
+.meteo-journaliere h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.journaliere-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.jour-meteo {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.jour-meteo:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.jour-entete {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.jour-entete::after {
+    content: "▼";
+    position: absolute;
+    right: 20px;
+    color: #777;
+    transition: transform 0.3s;
+}
+
+.jour-meteo.ouvert .jour-entete::after {
+    transform: rotate(180deg);
+}
+
+.jour-date {
+    flex: 1;
+}
+
+.jour-nom {
+    display: block;
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.jour-numero {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.jour-icone {
+    margin: 0 1rem;
+}
+
+.jour-icone img {
+    width: 50px;
+    height: 50px;
+}
+
+.jour-temperatures {
+    text-align: right;
+    min-width: 80px;
+}
+
+.temp-max {
+    font-weight: 700;
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+.temp-min {
+    color: #3498db;
+    font-size: 1rem;
+}
+
+.jour-details {
+    display: none;
+    padding: 0 1rem 1rem 1rem;
+    border-top: 1px solid #eee;
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.jour-meteo.ouvert .jour-details {
+    display: block;
+}
+
+.jour-description {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    padding: 1rem 0 0.5rem;
+}
+
+.jour-infos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.jour-info {
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 0.3rem;
+}
+
+.info-valeur {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.jour-details-supplementaires {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.jour-detail-supp {
+    padding: 0.8rem;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 6px;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 0.3rem;
+}
+
+.detail-valeur {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .meteo-actuelle-contenu {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .meteo-icone {
+        margin-bottom: 1rem;
+    }
+    
+    .details-secondaires {
+        justify-content: center;
+    }
+    
+    .previsions-liste {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 1rem;
+    }
+    
+    .prevision-jour {
+        min-width: 140px;
+    }
+    
+    .jour-entete {
+        flex-wrap: wrap;
+    }
+    
+    .jour-date {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .jour-infos {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .onglets-navigation {
+        flex-direction: column;
+    }
+    
+    .onglet-btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .prevision-jour {
+        min-width: 120px;
+    }
+    
+    .jour-details-supplementaires {
+        grid-template-columns: 1fr;
+    }
+}
