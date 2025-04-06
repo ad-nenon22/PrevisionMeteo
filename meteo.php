@@ -142,22 +142,16 @@ if (isset($_GET['ville_nom'])) {
 
 ?>
 
+<section>
+
 <div class="meteo-conteneur">
     <div class="meteo-intro">
-        <h2>Prévisions Météo pour la France</h2>
-        <p>Consultez les prévisions météorologiques détaillées pour toutes les villes de France métropolitaine. Utilisez la recherche par région, la carte interactive ou recherchez directement une ville pour obtenir les conditions météorologiques actuelles et les prévisions sur plusieurs jours.</p>
+        <h2>Prévisions Météorologiques Nationales</h2>
+    <p> Naviguez par région, explorez notre carte interactive ou saisissez directement le nom de votre ville pour consulter les conditions actuelles ainsi que les prévisions détaillées sur 5 jours. 
+</div>
     </div>
 
     
-    <!-- Message d'aide -->
-    <div class="message-aide">
-        <h4>Comment utiliser ce service ?</h4>
-        <p>Vous avez trois façons de consulter la météo : 
-            <strong>1)</strong> Sélectionnez une région, puis un département et enfin une ville, 
-            <strong>2)</strong> Cliquez sur une région dans la carte interactive, ou 
-            <strong>3)</strong> Recherchez directement une ville par son nom.
-        </p>
-    </div>
 
     <!-- Onglets de navigation -->
     <div class="onglets-navigation">
@@ -266,13 +260,7 @@ if (isset($_GET['ville_nom'])) {
                 <area shape="poly" coords="611,499,622,521,624,545,607,592,594,579,576,540" alt="Corse" href="?region=94" title="Corse">
             </map>
             
-            <!-- Liste des régions avec leurs liens corrects -->
-            <?php foreach ($donnees_regions as $region): ?>
-            <a href="meteo.php?region=<?php echo $region['code']; ?>" class="region" id="region-<?php echo $region['code']; ?>" title="<?php echo $region['nom']; ?>">
-                <div class="region-label"><?php echo $region['nom']; ?></div>
-                <div class="region-code"><?php echo $region['code']; ?></div>
-            </a>
-            <?php endforeach; ?>
+            
         </div>
     </div>
     
@@ -294,9 +282,9 @@ if (isset($_GET['ville_nom'])) {
             <?php endif; ?>
             
             <div class="exemples-villes">
-                <p>Exemples : <a href="?ville_nom=Paris">Paris</a>, <a href="?ville_nom=Marseille">Marseille</a>, 
-                <a href="?ville_nom=Lyon">Lyon</a>, <a href="?ville_nom=Cergy">Cergy</a>, <a href="?ville_nom=Sannois">Sannois</a>, 
-                <a href="?ville_nom=Neuville">Neuville</a>, <a href="?ville_nom=Ermont">Ermont</a></p>
+                <p>Exemples : <a href="?ville_nom=Cergy">Cergy</a>, <a href="?ville_nom=Orleans">Orleans</a>, 
+                <a href="?ville_nom=Paris">Paris</a>, <a href="?ville_nom=Lyon">Lyon</a>, 
+                <a href="?ville_nom=Marseille">Marseille</a>, <a href="?ville_nom=Toulouse">Toulouse</a></p>
             </div>
         </div>
     </div>
@@ -372,7 +360,7 @@ if (isset($_GET['ville_nom'])) {
             </div>
         </div>
         
-         <!-- Affichage de la météo journalière -->
+         <!-- Affichage de la météo journalière sur 7 jours -->
         <?php if ($meteo_journaliere && isset($meteo_journaliere['daily'])): ?>
         <div class="meteo-journaliere">
             <h3>Prévisions détaillées jour par jour</h3>
@@ -475,6 +463,7 @@ if (isset($_GET['ville_nom'])) {
             </div>
         </div>
         <?php endif; ?>
+
         
         <div class="previsions-jours">
             <h3>Prévisions sur 5 jours</h3>
@@ -496,6 +485,7 @@ if (isset($_GET['ville_nom'])) {
                 }
                 
                 // Limiter à 5 jours
+
                 $previsions_par_jour = array_slice($previsions_par_jour, 0, $jours_max);
                 
                 foreach ($previsions_par_jour as $jour => $previsions_jour) {
@@ -546,7 +536,9 @@ if (isset($_GET['ville_nom'])) {
     </div>
     <?php endif; ?>
 </div>
+
 <!-- Affichage de la dernière ville consultée -->
+
     <?php if ($derniere_ville): ?>
     <div class="derniere-consultation">
         <h3>Dernière ville consultée</h3>
@@ -567,8 +559,10 @@ if (isset($_GET['ville_nom'])) {
     </div>
     <?php endif; ?>
 
+</section>
 
 <script>
+
 // Script pour la navigation par onglets
 document.addEventListener('DOMContentLoaded', function() {
     const onglets = document.querySelectorAll('.onglet-btn');

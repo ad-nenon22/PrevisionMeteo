@@ -468,263 +468,241 @@ footer a:hover {
 
 
 
+/* page Méteo 
+/* Styles généraux */
+:root {
+    --primary-color: #2b6cb0;
+    --secondary-color: #4299e1;
+    --accent-color: #ebf8ff;
+    --text-color: #2d3748;
+    --light-text: #718096;
+    --border-color: #e2e8f0;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f7fafc;
+    margin: 0;
+    padding: 0;
+}
 
-
-/* page Météo */
-
-/* Styles pour la page météo - Optimisé pour compléter un CSS global existant */
-
-/* Structure principale */
 .meteo-conteneur {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    font-family: 'Open Sans', Arial, sans-serif;
 }
 
-/* Introduction */
+/* En-tête et introduction */
 .meteo-intro {
-    margin-bottom: 2rem;
     text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .meteo-intro h2 {
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
 .meteo-intro p {
-    color: #555;
-    line-height: 1.5;
+    font-size: 16px;
+    color: black;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+
+
 }
 
-/* Dernière ville consultée */
-.derniere-consultation {
-    background: linear-gradient(to right, #3498db, #2980b9);
-    color: white;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
 
-.derniere-consultation h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
 
-.derniere-ville-details {
-    margin-bottom: 1rem;
-}
-
-.ville-nom {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-}
-
-.ville-localisation {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-}
-
-.ville-localisation span {
-    font-weight: bold;
-}
-
-.date-consultation {
-    font-style: italic;
-    font-size: 0.85rem;
-    opacity: 0.9;
-}
-
-.derniere-ville-actions {
-    text-align: right;
-}
-
-.bouton-primaire {
-    background-color: white;
-    color: #2980b9;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.bouton-primaire:hover {
-    background-color: #f5f5f5;
-    transform: translateY(-2px);
-}
-
-/* Message d'aide */
-.message-aide {
-    background-color: #f9f9f9;
-    border-left: 4px solid #3498db;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 0 4px 4px 0;
-}
-
-.message-aide h4 {
-    margin-top: 0;
-    color: #2c3e50;
-}
-
-/* Onglets de navigation */
+/* Navigation par onglets */
 .onglets-navigation {
     display: flex;
-    border-bottom: 2px solid #eee;
-    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 25px;
 }
 
 .onglet-btn {
     background: none;
     border: none;
     padding: 12px 20px;
-    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--light-text);
     cursor: pointer;
-    font-weight: 600;
-    color: #777;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .onglet-btn:hover {
-    color: #3498db;
+    color: var(--primary-color);
 }
 
 .onglet-btn.actif {
-    color: #3498db;
-    border-bottom: 3px solid #3498db;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
-/* Conteneurs d'onglets */
+.onglet-btn.actif::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
 .contenu-onglet {
-    margin-bottom: 2rem;
+    padding: 20px 0;
 }
 
 /* Formulaires */
-.formulaire-meteo {
-    margin-bottom: 1rem;
+.formulaire-meteo, .formulaire-recherche {
+    margin-bottom: 20px;
 }
 
 .groupe-formulaire {
-    margin-bottom: 1.2rem;
+    margin-bottom: 15px;
 }
 
 .groupe-formulaire label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2c3e50;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
 }
 
-.groupe-formulaire select {
+.groupe-formulaire select,
+.champ-recherche input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    color: var(--text-color);
     background-color: white;
+    box-shadow: var(--box-shadow);
 }
 
-/* Carte interactive */
-.france-map-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+.groupe-formulaire select:focus,
+.champ-recherche input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
 }
 
-#main-france-map {
-    width: 100%;
-    height: auto;
+.conteneur-selection {
+    background-color: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.conteneur-selection h3 {
+    margin-top: 0;
+    color: var(--primary-color);
 }
 
 /* Recherche par ville */
 .recherche-ville-form {
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .champ-recherche {
     display: flex;
+    gap: 10px;
 }
 
 .champ-recherche input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-    font-size: 1rem;
+    flex-grow: 1;
 }
 
 .bouton-recherche {
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 0 20px;
-    border-radius: 0 4px 4px 0;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .bouton-recherche:hover {
-    background-color: #2980b9;
-}
-
-.message-erreur {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    border-radius: 4px;
-    margin: 1rem 0;
+    background-color: #2c5282;
 }
 
 .exemples-villes {
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    margin-top: 15px;
+    font-size: 14px;
 }
 
 .exemples-villes a {
-    color: #3498db;
-    margin-right: 8px;
+    color: var(--secondary-color);
     text-decoration: none;
+    margin-right: 8px;
 }
 
 .exemples-villes a:hover {
     text-decoration: underline;
 }
 
-/* Résultats météo - Partie Actuelle */
+.message-erreur {
+    color: #e53e3e;
+    padding: 10px;
+    margin: 15px 0;
+    background-color: #fff5f5;
+    border-left: 4px solid #e53e3e;
+    border-radius: var(--border-radius);
+}
+
+/* Carte interactive */
+.france-map-container {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#main-france-map {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Résultats météo */
 .meteo-resultats {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
 }
 
 .meteo-actuelle {
-    margin-bottom: 2.5rem;
+    background: linear-gradient(to right, #3182ce, #2c5282);
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow);
 }
 
 .meteo-actuelle h2 {
     margin-top: 0;
-    color: #2c3e50;
-    font-size: 1.8rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .meteo-actuelle-contenu {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
+    gap: 20px;
 }
 
 .meteo-icone {
@@ -732,201 +710,100 @@ footer a:hover {
 }
 
 .meteo-icone img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: auto;
 }
 
 .meteo-icone p {
-    margin-top: 0;
-    font-size: 1.1rem;
-    color: #2c3e50;
+    margin: 5px 0 0;
+    font-weight: 500;
 }
 
 .meteo-details {
-    flex: 1;
-    min-width: 200px;
+    flex-grow: 1;
 }
 
 .temperature-principale {
-    font-size: 3.5rem;
+    font-size: 48px;
     font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 }
 
-.temperature-principale .unite {
-    font-size: 2rem;
-    vertical-align: super;
+.unite {
+    font-size: 24px;
+    vertical-align: top;
 }
 
 .details-secondaires {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 15px;
 }
 
-.detail {
-    min-width: 100px;
+.detail, .detail-supp, .jour-detail-supp {
+    display: flex;
+    flex-direction: column;
 }
 
-.detail .label {
-    display: block;
-    font-size: 0.85rem;
-    color: #777;
-    margin-bottom: 0.3rem;
+.label, .info-label, .detail-label {
+    font-size: 14px;
+    opacity: 0.8;
 }
 
-.detail .valeur {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2c3e50;
+.valeur, .info-valeur, .detail-valeur {
+    font-weight: 500;
 }
 
 .meteo-details-supplementaires {
-    flex: 1;
-    min-width: 200px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 1rem;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    margin-top: 20px;
 }
 
-.detail-supp {
-    background-color: rgba(52, 152, 219, 0.1);
-    padding: 0.8rem;
-    border-radius: 6px;
-}
-
-.detail-supp .label {
-    display: block;
-    font-size: 0.8rem;
-    color: #777;
-    margin-bottom: 0.3rem;
-}
-
-.detail-supp .valeur {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-/* Prévisions sur 5 jours */
-.previsions-jours {
-    margin-bottom: 2.5rem;
-}
-
-.previsions-jours h3 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-}
-
-.previsions-liste {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    padding-bottom: 1rem;
-}
-
-.prevision-jour {
-    min-width: 150px;
-    flex: 1;
-    background-color: white;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.prevision-jour:hover {
-    transform: translateY(-5px);
-}
-
-.prevision-jour .jour {
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-.prevision-jour .date {
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: #777;
-}
-
-.prevision-jour img {
-    width: 80px;
-    height: 80px;
-    margin: 0.5rem auto;
-}
-
-.prevision-jour .temperature {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-}
-
-.prevision-jour .max {
-    color: #e74c3c;
-    font-weight: 700;
-}
-
-.prevision-jour .min {
-    color: #3498db;
-    font-weight: 700;
-}
-
-.prevision-jour .description {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Prévisions détaillées jour par jour */
+/* Prévisions journalières */
 .meteo-journaliere {
-    margin-bottom: 2.5rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow);
 }
 
 .meteo-journaliere h3 {
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .journaliere-liste {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 15px;
 }
 
 .jour-meteo {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f8fafc;
+    border-radius: var(--border-radius);
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .jour-meteo:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .jour-entete {
     display: flex;
     align-items: center;
-    padding: 1rem;
-    position: relative;
-}
-
-.jour-entete::after {
-    content: "▼";
-    position: absolute;
-    right: 20px;
-    color: #777;
-    transition: transform 0.3s;
-}
-
-.jour-meteo.ouvert .jour-entete::after {
-    transform: rotate(180deg);
+    padding: 15px;
+    background-color: #f1f5f9;
 }
 
 .jour-date {
@@ -934,24 +811,23 @@ footer a:hover {
 }
 
 .jour-nom {
+    font-weight: 600;
     display: block;
-    font-weight: 700;
-    color: #2c3e50;
-    font-size: 1.2rem;
+    font-size: 18px;
 }
 
 .jour-numero {
-    font-size: 0.9rem;
-    color: #777;
+    color: var(--light-text);
+    font-size: 14px;
 }
 
 .jour-icone {
-    margin: 0 1rem;
+    margin: 0 15px;
 }
 
 .jour-icone img {
     width: 50px;
-    height: 50px;
+    height: auto;
 }
 
 .jour-temperatures {
@@ -960,146 +836,212 @@ footer a:hover {
 }
 
 .temp-max {
-    font-weight: 700;
-    color: #e74c3c;
-    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e53e3e;
 }
 
 .temp-min {
-    color: #3498db;
-    font-size: 1rem;
+    color: #2b6cb0;
 }
 
 .jour-details {
-    display: none;
-    padding: 0 1rem 1rem 1rem;
-    border-top: 1px solid #eee;
-    background-color: rgba(52, 152, 219, 0.05);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .jour-meteo.ouvert .jour-details {
-    display: block;
+    padding: 15px;
+    max-height: 500px;
 }
 
 .jour-description {
-    font-size: 1.1rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    padding: 1rem 0 0.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
 }
 
 .jour-infos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.jour-info {
-    flex: 1;
-    min-width: 100px;
-    text-align: center;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.info-label {
-    display: block;
-    font-size: 0.85rem;
-    color: #777;
-    margin-bottom: 0.3rem;
-}
-
-.info-valeur {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2c3e50;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .jour-details-supplementaires {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    background-color: #f1f5f9;
+    border-radius: var(--border-radius);
 }
 
-.jour-detail-supp {
-    padding: 0.8rem;
-    background-color: rgba(52, 152, 219, 0.1);
-    border-radius: 6px;
+/* Prévisions sur 5 jours */
+.previsions-jours {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow);
 }
 
-.detail-label {
-    display: block;
-    font-size: 0.8rem;
-    color: #777;
-    margin-bottom: 0.3rem;
+.previsions-jours h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-.detail-valeur {
-    font-size: 1.1rem;
+.previsions-liste {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.prevision-jour {
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    text-align: center;
+    background-color: #f8fafc;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.prevision-jour:hover {
+    transform: translateY(-5px);
+}
+
+.jour {
     font-weight: 600;
-    color: #2c3e50;
+    margin-bottom: 10px;
 }
 
-/* Media queries pour la responsivité */
+.date {
+    font-weight: normal;
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.temperature {
+    margin: 10px 0;
+}
+
+.max {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+.min {
+    color: #2b6cb0;
+}
+
+.description {
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+/* Dernière ville consultée */
+.derniere-consultation {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: var(--box-shadow);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.derniere-consultation h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.derniere-ville-details {
+    margin-bottom: 15px;
+}
+
+.ville-nom {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.ville-localisation {
+    margin: 0 0 5px;
+    color: var(--light-text);
+}
+
+.ville-localisation span {
+    font-weight: 500;
+}
+
+.date-consultation {
+    font-size: 14px;
+    color: var(--light-text);
+    margin: 0;
+}
+
+.derniere-ville-actions {
+    margin-top: 15px;
+}
+
+.bouton-primaire {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bouton-primaire:hover {
+    background-color: #2c5282;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+    .onglets-navigation {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     .meteo-actuelle-contenu {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
     
-    .meteo-icone {
-        margin-bottom: 1rem;
+    .meteo-details {
+        width: 100%;
     }
     
     .details-secondaires {
         justify-content: center;
     }
     
-    .previsions-liste {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 1rem;
-    }
-    
     .prevision-jour {
-        min-width: 140px;
+        min-width: calc(50% - 15px);
     }
     
-    .jour-entete {
-        flex-wrap: wrap;
-    }
-    
-    .jour-date {
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-    
-    .jour-infos {
+    .champ-recherche {
         flex-direction: column;
     }
 }
 
 @media (max-width: 480px) {
-    .onglets-navigation {
-        flex-direction: column;
-    }
-    
-    .onglet-btn {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-    
     .prevision-jour {
-        min-width: 120px;
+        min-width: 100%;
     }
     
+    .meteo-details-supplementaires,
+    .jour-infos,
     .jour-details-supplementaires {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
