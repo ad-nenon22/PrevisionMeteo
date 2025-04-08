@@ -281,7 +281,7 @@ else {
         }
         
          .percentage-bar {
-            height: 14px;
+            height: 16px;
             background: #ecf0f1;
             border-radius: 4px;
             position: relative;

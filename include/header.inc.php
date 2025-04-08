@@ -34,34 +34,24 @@ else {
     $logo_image = "./images/oo.png"; // Logo par défaut (mode cmlair)
 }
 ?>
-
-
 <meta charset="UTF-8"/>
 <meta name="author" content="Admira"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="<?php echo $page_des ?? 'Développement Web'; ?>"/>
+<meta name="description" content="<?php echo $page_des ?? 'Mété news'; ?>"/>
 
 <title><?php echo $title ?? 'Skyview Météo'; ?></title>
 <link rel="stylesheet" href="<?php echo $style; ?>"/>
 <link rel="icon" href="images/fav.ico" type="image/x-icon"/>
-
 </head>
 
 <body>
-
     <header class="header">
 
-     <div class = "header-top">
-
-
-
+       <div class = "header-top">
         <a href="index.php" class="logo">
             <img src="<?php echo $logo_image; ?>" alt="Logo du site"/>
         </a>
-
-
         <h1 class="title"> Météo News </h1>
-
     </div>
     <nav class="menu">
         <figure id="viewmode">
@@ -73,10 +63,6 @@ else {
             <li><a href="meteo.php">Météo</a></li>
             <li><a href="stat.php">Statistique</a></li>
             <li><a href="tech.php">Tech</a></li>
-
-
-
         </ul>
     </nav>
-
 </header>
