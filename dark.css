@@ -1,10 +1,10 @@
 /* Styles généraux */
 body {
-    font-family: 'Montserrat' sans-serif;
+    font-family: 'Robotto' sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #171616;
-    color: #E0E0E0;
+    background-color: #1E2A38;
+    color: white;
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -13,9 +13,9 @@ body {
     display: flex;
     flex-direction: column; /* Changement clé pour empiler les éléments verticalement */
     text-align: center;
-    background-color:#121212;
+    background-color: #091563;
     padding: 8px 15px;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 .header-top {
     display: flex;
@@ -23,6 +23,12 @@ body {
     padding: 0px 20px;
     justify-content: left; /* Centre horizontalement */
 }
+header .title {
+    font-size:20px;
+    font-weight: bold;
+    color: white;
+}
+
 
 /* Logo */
 .logo {
@@ -46,15 +52,17 @@ body {
 }
 
 
-
-/* Navigation - maintenant en bas */
+/* Navigation */
 .menu {
-    position: static; /* Supprime le positionnement fixe */
-    width: 100%; /* Prend toute la largeur */
-    background-color:  #121212; /* Couleur légèrement différente pour distinguer du header */
-    padding: 0; /* Suppression du padding */
-    margin-top: auto; /* Pousse le menu vers le bas */
+    position: static;
+    width: 100%;
+    background-color: #091563;
+    padding: 0;
+    margin-top: auto;
+    border-top: none;
+    box-shadow: none;
 }
+
 
 /* Liste de navigation */
 .menu ul {
@@ -63,9 +71,26 @@ body {
     margin: 0;
     padding: 0;
     align-items: center;
-    justify-content: center; /* Centre les éléments du menu */
-    border-top: none; /* Supprime la ligne de séparation */
+    justify-content: center;
+    border-top: none;
+}
 
+
+/* Éléments de navigation */
+.menu > ul > li {
+    position: relative;
+    margin-right: 30px;
+}
+
+/* Liens du menu */
+.menu > ul > li > a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 10px 15px;
+    position: relative;
 }
     
 
@@ -88,7 +113,7 @@ body {
 }
 
 .menu > ul > li > a:hover {
-       color: #6dbaf7;
+       color: #1f40c2;
    }
 
 
@@ -108,14 +133,15 @@ main {
 h1, h2, h3 {
     text-align: left;
     font-weight: bold;
+
 }
 
 section {
-    background-color:  #1E1E1E;
+    background-color:  #273645;
     margin: 20px auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
 }
 
@@ -161,22 +187,6 @@ tr:hover {
 }
 
 
-/* Liste Hexadécimale */
-.hex-list {
-    display: flex;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    justify-content: left;
-}
-
-.hex-list li {
-    color: white;
-    padding: 12px 18px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
 /* Pied de page */
 footer {
     text-align: center;
@@ -212,51 +222,13 @@ footer a:hover {
     opacity: 0.8;
     text-decoration: underline;
 }
-/* Effets spécifiques */
-.digit {
-    color: red;
+/***************************** page Accueil****************************/
+
+
+/* Contenu actualité*/
+.contenu {
+    padding: 10px;
 }
-
-.uppercase {
-    color: green;
-}
-
-.lowercase {
-    color: blue;
-}
-
-.plan {
-    text-align: center;
-}
-
-.site-map {
-    list-style: none;
-    padding: 0;
-}
-
-.site-map li {
-    margin: 10px 0;
-}
-
-.site-map a {
-    text-decoration: none;
-    color: #007BFF;
-    font-weight: bold;
-}
-
-.site-map a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-.plan-image img {
-    max-width: 80%;
-    height: auto;
-    margin-top: 20px;
-}
-
-//
-
 .educational-content {
     text-align: center;
     padding: 50px 20px;
@@ -266,7 +238,7 @@ footer a:hover {
 .educational-content h2 {
     font-size: 28px;
     margin-bottom: 30px;
-    color: white;
+    color: #333;
 }
 
 .articles {
@@ -310,77 +282,30 @@ footer a:hover {
 .articles article a:hover {
     background: #ff8c00;
 }
+/****** banniere image aleatoire*******/
+.banner-image {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .banner-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover; /* Cette propriété ajuste l'image à la taille du conteneur */
+    }
+    .banner h2 {
+        color: white;
+        text-align: center;
+        margin-bottom: 15px;
+    }
 
 
 
 
-/* Conteneur principal */
-.rubrique {
-    max-width: 1200px;
-    margin: auto;
-}
+/*********************************** PAGE  Méteo *******************************/
 
-.rubrique-titre {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #003366;
-    margin-bottom: 20px;
-}
-
-/* Liste des blocs */
-.liste-blocs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: flex-start;
-    list-style: none;
-    padding: 0;
-}
-
-/* Éléments individuels */
-.liste-blocs li {
-    width: 160px;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
-}
-
-.liste-blocs li:hover {
-    transform: scale(1.05);
-}
-
-/* Liens */
-.liste-blocs a {
-    text-decoration: none;
-    display: block;
-    color: inherit;
-}
-
-/* Images */
-.liste-blocs img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-}
-
-/* Contenu */
-.contenu {
-    padding: 10px;
-}
-
-header .title {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-
-
-
-/* page Méteo 
-/* Styles généraux */
+/* variables généraux */
 :root {
     --primary-color: #2b6cb0;
     --secondary-color: #4299e1;
@@ -391,16 +316,6 @@ header .title {
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     --border-radius: 8px;
 }
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #f7fafc;
-    margin: 0;
-    padding: 0;
-}
-
 .meteo-conteneur {
     max-width: 1200px;
     margin: 0 auto;
@@ -428,10 +343,7 @@ body {
     margin: 0 auto;
     text-align: left;
 
-
 }
-
-
 
 /* Navigation par onglets */
 .onglets-navigation {
@@ -439,7 +351,6 @@ body {
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 25px;
 }
-
 .onglet-btn {
     background: none;
     border: none;
@@ -899,6 +810,7 @@ body {
     margin-top: 15px;
 }
 
+
 .bouton-primaire {
     background-color: var(--primary-color);
     color: white;
@@ -956,3 +868,5 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* vigilance */

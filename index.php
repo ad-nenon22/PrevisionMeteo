@@ -35,10 +35,10 @@ require "include/header.inc.php";
     <section class="lang">
         <span id="lang">
             <a href="index.php?lang=fr">
-                <img src="images/fr.png" alt="drapeau français" style="width: 20px; height: auto;">
+                <img src="images/fr.png" alt="drapeau français" style="width: 20px; height: 20px;cursor: pointer; border: 1px solid #eee;">
             </a>
             <a href="index.php?lang=en">
-                <img src="images/uk.png" alt="drapeau US" style="width: 20px; height: auto;">
+                <img src="images/uk.png" alt="drapeau US" style="width: 20px;height: 20px;cursor: pointer; border: 1px solid #eee;">
             </a>
         </span>
         <?php
@@ -49,6 +49,10 @@ require "include/header.inc.php";
         }
         require "$lang";
         ?>    
+        <span>
+        <h2>Planifiez votre journée avec précision</h2>
+
+        </span>
     </section>
     
     <section class="educational-content">
@@ -79,28 +83,9 @@ require "include/header.inc.php";
                 <a href="actualite.php">Lire plus</a>
             </article>
         </div>
-        <p>Consultez les villes <a href="stat.php">Les plus consultées</a> !</p>
     </section>
 </main>
 
-<style>
-    .banner-image {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .banner-img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover; /* Cette propriété ajuste l'image à la taille du conteneur */
-    }
-    .banner h2 {
-        text-align: center;
-        margin-bottom: 15px;
-        color: #2c3e50;
-    }
-</style>
 
 <?php
     require "./include/footer.inc.php";
