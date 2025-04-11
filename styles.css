@@ -1,34 +1,39 @@
+
 /* Styles généraux */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans' ;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
     color: black;
+    color: var(--text-color);
+    line-height: 1.6;
 }
-/* Header Layout - restructuré en layout vertical */
+
 .header {
     display: flex;
-    flex-direction: column; /* Changement clé pour empiler les éléments verticalement */
+    flex-direction: column; 
     text-align: center;
-    background-color: white; /* Garde la couleur de fond blanche originale */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 0; /* Suppression du padding général */
+    background-color: #1f40c2;
+    padding: 8px 15px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 .header-top {
     display: flex;
     align-items: center;
-    padding: 15px 25px;
+    padding: 0px 20px;
+    justify-content: left; /* Centre horizontalement */
 }
 
 /* Logo */
 .logo {
-    margin-right: 50px; /* Garde l'espacement original */
+    margin-right: 30px; /* Garde l'espacement original */
 }
 
 .logo img {
-    height: 50px;
-}#viewmode {
+    height: 45px;
+}
+#viewmode {
     position: absolute;
     right: 20px;
     top: 20px;
@@ -36,21 +41,49 @@ body {
 }
 
 #viewmode img {
-    width: 20px; /* Ajustez la taille selon vos besoins */
+    width: 25px; /* Ajustez la taille selon vos besoins */
     height: auto;
     cursor: pointer;
 }
 
+header .title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
 
 
-/* Navigation - maintenant en bas */
+/* Logo */
+.logo {
+    margin-right: 10px; /* Garde l'espacement original */
+}
+
+.logo img {
+    height: 45px;
+}
+
+/* View mode button */
+#viewmode {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    margin: 0;
+}
+
+#viewmode img {
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Navigation */
 .menu {
-    position: static; /* Supprime le positionnement fixe */
-    width: 100%; /* Prend toute la largeur */
-    background-color: white; /* Couleur légèrement différente pour distinguer du header */
-    padding: 0; /* Suppression du padding */
-    margin-top: auto; /* Pousse le menu vers le bas */
-    border-top: none; /* Supprime la ligne de séparation */
+    position: static;
+    width: 100%;
+    background-color: #1f40c2;
+    padding: 0;
+    margin-top: auto;
+    border-top: none;
     box-shadow: none;
 }
 
@@ -61,22 +94,20 @@ body {
     margin: 0;
     padding: 0;
     align-items: center;
-    justify-content: center; /* Centre les éléments du menu */
-    border-top: none; /* Supprime la ligne de séparation */
-
+    justify-content: center;
+    border-top: none;
 }
 
 /* Éléments de navigation */
 .menu > ul > li {
     position: relative;
-    margin-right: 30px; /* Augmente l'espacement entre les éléments */
-
+    margin-right: 30px;
 }
 
 /* Liens du menu */
 .menu > ul > li > a {
     text-decoration: none;
-    color: black; /* Garde la couleur originale */
+    color: black;
     font-weight: 500;
     transition: color 0.3s ease;
     display: block;
@@ -84,6 +115,13 @@ body {
     position: relative;
 }
 
+/* Effet de survol pour les liens du menu */
+.menu ul li a:hover {
+    background-color: #9acced;
+    color: #fff;
+}
+
+/* Section intro */
 .intro {
     background-color: white;
     padding: 30px;
@@ -101,13 +139,14 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
+/* Section */
 section {
-    background-color: #f5f5f5;
+    background-color: white;
     margin: 20px auto;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    max-width: 1400px;
 }
 
 section h2 {
@@ -115,6 +154,7 @@ section h2 {
     padding-bottom: 8px;
     margin-bottom: 20px;
 }
+
 
 
 
@@ -136,26 +176,6 @@ th, td {
 thead th {
     background-color: #6299de;
     color: white;
-    font-weight: bold;
-}
-
-
-
-
-
-/* Liste Hexadécimale */
-.hex-list {
-    display: flex;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    justify-content: left;
-}
-
-.hex-list li {
-    color: white;
-    padding: 12px 18px;
-    border-radius: 5px;
     font-weight: bold;
 }
 
@@ -184,6 +204,7 @@ footer {
     display: block;
     margin-top: 8px;
 }
+
 footer a {
     color: yellow;
     text-decoration: none;
@@ -194,28 +215,32 @@ footer a:hover {
     opacity: 0.8;
     text-decoration: underline;
 }
-/* Effets spécifiques */
-.digit {
-    color: red;
-}
 
-.uppercase {
-    color: green;
-}
-
-.lowercase {
-    color: blue;
-}
-
-
+/****************************** page Plan du site **********************/
 
 .plan {
-    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.plan h2 {
+    color: #0056b3; /* Bleu pour le titre */
+    text-align: center;
+}
+.plan p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Liste de navigation */
 .site-map {
     list-style: none;
     padding: 0;
+    text-align: center;
 }
 
 .site-map li {
@@ -224,19 +249,73 @@ footer a:hover {
 
 .site-map a {
     text-decoration: none;
-    color: #007BFF;
-    font-weight: bold;
+    color: #0056b3; /* Bleu */
+    font-size: 1.2em;
+    transition: color 0.3s;
 }
 
 .site-map a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    color: #004080; /* Bleu plus foncé au survol */
 }
 
-.plan-image img {
-    max-width: 80%;
+/************************************ Page Tech **************/
+
+.apod {
+    background: #ffffff;
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.apod h2, .apod h3 {
+    color: #005691;
+    margin-bottom: 1rem;
+}
+
+.apod-image-container {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.apod-image {
+    max-width: 100%;
     height: auto;
-    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.apod video {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 10px;
+}
+
+.apod p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.apod section {
+    margin-bottom: 3rem;
+}
+
+.apod strong {
+    color: #1b3b5f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .apod {
+        padding: 1rem;
+    }
+
+    .apod h2, .apod h3 {
+        font-size: 1.3rem;
+    }
 }
 
 
@@ -246,11 +325,7 @@ footer a:hover {
     padding: 10px;
 }
 
-.title {
-    font-size: 14px;
-    font-weight: bold;
-    color: #003366;
-}
+
 
 //
 
@@ -374,8 +449,122 @@ footer a:hover {
     color: #003366;
 }
 
-/* page Méteo 
-/* Styles généraux */
+
+
+
+/******************* PAGE french / english *******************************/
+.hero {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: #0d47a1;
+    margin-bottom: 0.5rem;
+}
+
+.hero span {
+    font-size: 1rem;
+    color: #555;
+}
+
+.meteo-conteneur {
+    margin-top: 2rem;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+/* Cartes */
+.service-card {
+    background: #fff;
+    width: 280px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card:hover {
+    transform: scale(1.03);
+}
+
+/* Icône */
+.service-icon {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Titre de section */
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #003366;
+}
+
+/* Texte */
+.service-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Bouton stylé marron + hover orange */
+.boutonC {
+    display: inline-block;
+    background: #6d4c41; /* marron */
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.boutonC:hover {
+    background: #ff8c00; /* orange */
+    color: #fff;
+}
+
+/* Responsive : 2 colonnes sur petit écran */
+@media (max-width: 768px) {
+    .services-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/******************* PAGE  Méteo *******************************/
+
+/* variables généraux */
 :root {
     --primary-color: #2b6cb0;
     --secondary-color: #4299e1;
@@ -386,16 +575,6 @@ footer a:hover {
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     --border-radius: 8px;
 }
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #f7fafc;
-    margin: 0;
-    padding: 0;
-}
-
 .meteo-conteneur {
     max-width: 1200px;
     margin: 0 auto;
@@ -423,10 +602,7 @@ body {
     margin: 0 auto;
     text-align: left;
 
-
 }
-
-
 
 /* Navigation par onglets */
 .onglets-navigation {
@@ -434,7 +610,6 @@ body {
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 25px;
 }
-
 .onglet-btn {
     background: none;
     border: none;
@@ -951,3 +1126,5 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* vigilance */

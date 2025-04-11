@@ -18,20 +18,20 @@ if(isset($_COOKIE['style'])) {
         $style = "dark.css";
         $other_style = "styles.css";
         $sourceimage = "./images/ligth.png";
-        $logo_image = "./images/oo.png"; // Logo pour le mode sombre
+        $logo_image = "./images/logo.png"; // Logo pour le mode sombre
     }
     else if($_COOKIE['style']=="styles.css") {
         $style = "styles.css";
         $other_style = "dark.css";
         $sourceimage = "./images/dark.png";
-        $logo_image = "./images/oo.png"; // Logo pour le mode clair pareil
+        $logo_image = "./images/logo.png"; // Logo pour le mode clair pareil
     }
 }
 else {
     $style = "styles.css";
     $other_style = "dark.css";
     $sourceimage = "./images/dark.png";
-    $logo_image = "./images/oo.png"; // Logo par défaut (mode cmlair)
+    $logo_image = "./images/logo.png"; // Logo par défaut (mode cmlair)
 }
 ?>
 <meta charset="UTF-8"/>
@@ -42,6 +42,8 @@ else {
 <title><?php echo $title ?? 'Skyview Météo'; ?></title>
 <link rel="stylesheet" href="<?php echo $style; ?>"/>
 <link rel="icon" href="images/fav.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>

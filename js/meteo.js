@@ -1,107 +1,83 @@
-// Fonction pour gérer les onglets
-function afficherOnglet(ongletId) {
-    // Cacher tous les contenus d'onglets
-    const contenuOnglets = document.getElementsByClassName('contenu-onglet');
-    for (let i = 0; i < contenuOnglets.length; i++) {
-        contenuOnglets[i].style.display = 'none';
-    }
+/**
+ * Application Météo - Script principal optimisé
+ * Version allégée pour améliorer les performances
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialisation des fonctionnalités essentielles
+    initializeWeatherApp();
+});
+
+/**
+ * Initialise les fonctionnalités principales de l'application
+ */
+function initializeWeatherApp() {
+    // Configuration du système d'onglets
+    setupTabs();
     
-    // Afficher le contenu de l'onglet sélectionné avec animation
-    const ongletActif = document.getElementById(ongletId);
-    ongletActif.style.display = 'block';
-    ongletActif.classList.add('animate-fade-in');
-    setTimeout(() => {
-        ongletActif.classList.remove('animate-fade-in');
-    }, 500);
+    // Configuration de l'autocomplétion pour la recherche
+    setupAutocomplete();
     
-    // Mettre à jour les classes des onglets
-    const onglets = document.getElementsByClassName('onglet');
-    for (let i = 0; i < onglets.length; i++) {
-        onglets[i].classList.remove('actif');
-    }
+    // Configuration du formulaire de recherche météo
+    setupWeatherForm();
     
-    // Ajouter la classe active à l'onglet cliqué
-    event.currentTarget.classList.add('actif');
+    // Animation des résultats météo
+    animateWeatherResults();
     
-    // Sauvegarder l'onglet actif dans le localStorage
-    localStorage.setItem('ongletActif', ongletId);
+    // Configuration des interactions de la carte
+    setupMapInteractivity();
 }
 
-// Fonction pour améliorer l'interactivité de la carte de France
-function setupMapInteractivity() {
-    const mapAreas = document.querySelectorAll('map[name="francemap"] area');
-    const franceMap = document.getElementById('main-france-map');
+/**
+ * Configure le système d'onglets avec mise en évidence de l'onglet actif
+ */
+function setupTabs() {
+    const tabButtons = document.querySelectorAll('.onglet-btn');
     
-    if (!mapAreas.length || !franceMap) return;
-
-    // Créer un overlay pour afficher les noms de régions au survol
-    const overlay = document.createElement('div');
-    overlay.className = 'map-overlay';
-    overlay.style.cssText = `
-        position: absolute;
-        padding: 8px 12px;
-        background-color: rgba(74, 137, 220, 0.9);
-        color: white;
-        border-radius: 4px;
-        font-size: 14px;
-        font-weight: bold;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-        z-index: 10;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    `;
-    franceMap.parentNode.style.position = 'relative';
-    franceMap.parentNode.appendChild(overlay);
-    
-    // Ajouter des événements pour chaque zone de la carte
-    mapAreas.forEach(area => {
-        // Survol des régions
-        area.addEventListener('mouseover', function(e) {
-            const title = this.getAttribute('title');
-            overlay.textContent = title;
-            overlay.style.opacity = '1';
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Récupérer l'ID de l'onglet à afficher
+            const tabId = this.getAttribute('data-onglet');
             
-            // Mettre à jour la position du tooltip
-            updateTooltipPosition(e);
+            if (tabId) {
+                // Cacher tous les contenus d'onglets
+                const tabContents = document.querySelectorAll('.contenu-onglet');
+                tabContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                // Afficher le contenu de l'onglet sélectionné
+                const activeTab = document.getElementById(tabId);
+                if (activeTab) {
+                    activeTab.style.display = 'block';
+                }
+                
+                // Mettre à jour les classes des onglets
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('actif');
+                });
+                
+                // Ajouter la classe active à l'onglet cliqué
+                this.classList.add('actif');
+                
+                // Sauvegarder l'état de l'onglet dans l'URL
+                // Cela permet de conserver l'onglet actif lors du rechargement de la page
+                const urlParams = new URLSearchParams(window.location.search);
+                urlParams.set('onglet', tabId);
+                
+                // Mettre à jour l'URL sans recharger la page
+                const newUrl = window.location.pathname + '?' + urlParams.toString();
+                history.replaceState(null, '', newUrl);
+            }
         });
-        
-        area.addEventListener('mousemove', updateTooltipPosition);
-        
-        area.addEventListener('mouseout', function() {
-            overlay.style.opacity = '0';
-        });
-        
-        // Fonction pour mettre à jour la position du tooltip
-        function updateTooltipPosition(e) {
-            const mapRect = franceMap.getBoundingClientRect();
-            const x = e.clientX - mapRect.left;
-            const y = e.clientY - mapRect.top;
-            
-            overlay.style.left = `${x + 15}px`;
-            overlay.style.top = `${y + 15}px`;
-        }
     });
 }
 
-// Mettre en évidence région/département sélectionnés sur la carte
-function highlightSelectedRegion() {
-    // Récupérer les paramètres d'URL pour voir quelle région est sélectionnée
-    const urlParams = new URLSearchParams(window.location.search);
-    const selectedRegion = urlParams.get('region');
-    
-    if (selectedRegion) {
-        // Mettre en évidence l'area correspondante
-        const regionArea = document.querySelector(`map[name="francemap"] area[href*="region=${selectedRegion}"]`);
-        if (regionArea) {
-            regionArea.classList.add('selected-region');
-        }
-    }
-}
-
-// Autocomplétion pour la recherche de ville
+/**
+ * Configure l'autocomplétion pour la recherche de ville
+ */
 function setupAutocomplete() {
-    const searchInput = document.getElementById('recherche_ville');
+    const searchInput = document.getElementById('ville_nom');
     if (!searchInput) return;
     
     // Créer un conteneur pour les suggestions
@@ -138,14 +114,15 @@ function setupAutocomplete() {
         
         // Attendre que l'utilisateur arrête de taper pendant 300ms
         debounceTimer = setTimeout(() => {
-            // Simulation d'une requête d'autocomplétion (à remplacer par une vraie requête AJAX)
-            // Dans un cas réel, vous feriez une requête à votre backend PHP
+            // Simulation d'une requête d'autocomplétion
             fetchCitySuggestions(query);
         }, 300);
     });
     
-    // Fonction pour récupérer les suggestions de villes (simulation)
-    // Dans un cas réel, cette fonction ferait une requête AJAX vers votre backend
+    /**
+     * Récupère les suggestions de villes (simulation)
+     * @param {string} query - Texte saisi par l'utilisateur
+     */
     function fetchCitySuggestions(query) {
         // Simuler un délai réseau
         setTimeout(() => {
@@ -173,7 +150,10 @@ function setupAutocomplete() {
         }, 200);
     }
     
-    // Afficher les suggestions
+    /**
+     * Affiche les suggestions de villes dans le conteneur
+     * @param {Array} suggestions - Liste de suggestions de villes
+     */
     function displaySuggestions(suggestions) {
         suggestionsContainer.innerHTML = '';
         
@@ -219,68 +199,196 @@ function setupAutocomplete() {
     });
 }
 
-// Animation des résultats météo
+/**
+ * Configure le formulaire de recherche météo avec animation de chargement
+ */
+function setupWeatherForm() {
+    const loadWeatherBtn = document.querySelector('.formulaire-meteo .bouton');
+    
+    if (loadWeatherBtn) {
+        loadWeatherBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const region = document.querySelector('select[name="region"]')?.value;
+            const ville = document.querySelector('input[name="ville"]')?.value;
+            
+            if (region || ville) {
+                // Simulation d'un chargement
+                this.disabled = true;
+                this.innerHTML = '<span class="loading">Chargement...</span>';
+                
+                // Simuler un délai de chargement
+                setTimeout(() => {
+                    this.disabled = false;
+                    this.innerHTML = 'Rechercher';
+                    
+                    // Afficher les résultats météo
+                    const resultatMeteo = document.querySelector('.resultat-meteo');
+                    if (resultatMeteo) {
+                        resultatMeteo.style.display = 'block';
+                        resultatMeteo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    
+                    // Mise à jour de la date de consultation
+                    const dateConsultation = document.querySelector('.date-consultation');
+                    if (dateConsultation) {
+                        const now = new Date();
+                        dateConsultation.textContent = `Dernière consultation: ${now.toLocaleDateString()} à ${now.toLocaleTimeString()}`;
+                    }
+                    
+                    // Lancer l'animation des résultats
+                    animateWeatherResults();
+                }, 1000); // Délai réduit pour optimiser l'expérience utilisateur
+            }
+        });
+    }
+}
+
+/**
+ * Anime les résultats météo quand ils sont chargés
+ */
 function animateWeatherResults() {
     const weatherResult = document.querySelector('.resultat-meteo');
     if (!weatherResult) return;
     
-    // Ajouter des classes pour l'animation des éléments météo
+    // Animation des éléments météo
     const elementsToAnimate = [
-        '.carte-meteo',
-        '.jour-prevision'
+        '.meteo-actuelle',
+        '.prevision-jour',
+        '.jour-meteo'
     ];
     
-    elementsToAnimate.forEach((selector, index) => {
+    elementsToAnimate.forEach(selector => {
         const elements = document.querySelectorAll(selector);
         elements.forEach((el, i) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
             
             // Animation décalée
             setTimeout(() => {
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
-            }, 100 + (i * 150));
+            }, 100 + (i * 120));
         });
     });
 }
 
-// Chargement de la dernière vue
-function restoreLastView() {
-    // Restaurer l'onglet actif depuis localStorage
-    const lastActiveTab = localStorage.getItem('ongletActif');
-    if (lastActiveTab) {
-        const tabButton = document.querySelector(`.onglet[onclick*="${lastActiveTab}"]`);
-        if (tabButton) {
-            tabButton.click();
+/**
+ * Configure l'interactivité de la carte de France
+ */
+function setupMapInteractivity() {
+    const mapAreas = document.querySelectorAll('map[name="image-map"] area');
+    const franceMap = document.getElementById('main-france-map');
+    
+    if (!mapAreas.length || !franceMap) return;
+
+    // Créer un overlay pour afficher les noms de régions au survol
+    const overlay = document.createElement('div');
+    overlay.className = 'map-overlay';
+    overlay.style.cssText = `
+        position: absolute;
+        padding: 8px 12px;
+        background-color: rgba(74, 137, 220, 0.9);
+        color: white;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    `;
+    franceMap.parentNode.style.position = 'relative';
+    franceMap.parentNode.appendChild(overlay);
+    
+    // Fonction pour mettre à jour la position du tooltip
+    function updateTooltipPosition(e) {
+        const mapRect = franceMap.getBoundingClientRect();
+        const x = e.clientX - mapRect.left;
+        const y = e.clientY - mapRect.top;
+        
+        overlay.style.left = `${x + 15}px`;
+        overlay.style.top = `${y + 15}px`;
+    }
+    
+    // Ajouter des événements pour chaque zone de la carte
+    mapAreas.forEach(area => {
+        // Survol des régions
+        area.addEventListener('mouseover', function(e) {
+            const title = this.getAttribute('title');
+            overlay.textContent = title;
+            overlay.style.opacity = '1';
+            updateTooltipPosition(e);
+        });
+        
+        area.addEventListener('mousemove', updateTooltipPosition);
+        
+        area.addEventListener('mouseout', function() {
+            overlay.style.opacity = '0';
+        });
+    });
+
+    // Permettre aux détails des prévisions journalières d'être dépliables
+    const joursMeteo = document.querySelectorAll('.jour-meteo');
+    joursMeteo.forEach(function(jour) {
+        jour.addEventListener('click', function() {
+            this.classList.toggle('ouvert');
+        });
+    });
+
+    // Script pour la navigation par onglets
+document.addEventListener('DOMContentLoaded', function() {
+    const onglets = document.querySelectorAll('.onglet-btn');
+    
+    // Fonction pour activer un onglet
+    function activerOnglet(ongletId) {
+        // Masquer tous les contenus d'onglets
+        document.querySelectorAll('.contenu-onglet').forEach(function(contenu) {
+            contenu.style.display = 'none';
+        });
+        
+        // Afficher le contenu de l'onglet sélectionné
+        const tabContent = document.getElementById(ongletId);
+        if (tabContent) {
+            tabContent.style.display = 'block';
+        }
+        
+        // Mettre à jour la classe active
+        onglets.forEach(function(o) {
+            o.classList.remove('actif');
+        });
+        
+        const selectedTab = document.querySelector(`.onglet-btn[data-onglet="${ongletId}"]`);
+        if (selectedTab) {
+            selectedTab.classList.add('actif');
         }
     }
-}
-
-// Fonction pour initialiser toutes les fonctionnalités JS
-function initializeApplication() {
-    // Mettre en place l'interactivité de la carte
-    setupMapInteractivity();
     
-    // Mettre en évidence la région sélectionnée
-    highlightSelectedRegion();
+    // Configurer les écouteurs d'événements pour les clics sur les onglets
+    onglets.forEach(function(onglet) {
+        onglet.addEventListener('click', function() {
+            const ongletId = this.getAttribute('data-onglet');
+            activerOnglet(ongletId);
+        });
+    });
     
-    // Initialiser l'autocomplétion
-    setupAutocomplete();
-    
-    // Animer les résultats météo
-    animateWeatherResults();
-    
-    // Restaurer la dernière vue
-    restoreLastView();
-    
-    // Vérifier l'état des données météo pour afficher des animations
-    const weatherCard = document.querySelector('.carte-meteo');
-    if (weatherCard) {
-        weatherCard.classList.add('loaded');
+    // Trouver l'onglet actif au chargement de la page
+    const activeTab = document.querySelector('.onglet-btn.actif');
+    if (activeTab) {
+        // Activer explicitement l'onglet qui a la classe 'actif'
+        const activeTabId = activeTab.getAttribute('data-onglet');
+        activerOnglet(activeTabId);
     }
+    
+    // Script pour afficher/masquer les détails des prévisions journalières
+    const joursMeteo = document.querySelectorAll('.jour-meteo');
+    
+    joursMeteo.forEach(function(jour) {
+        jour.addEventListener('click', function() {
+            this.classList.toggle('ouvert');
+        });
+    });
+});
 }
-
-// Lancer l'initialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', initializeApplication);

@@ -423,4 +423,7 @@ function formatDateFr($date, $avec_heure = false) {
     return $resultat;
 }
 
+
+
+
 ?>
