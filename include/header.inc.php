@@ -44,12 +44,13 @@ else {
 <link rel="icon" href="images/fav.ico" type="image/x-icon"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+
 </head>
 
 <body>
     <header class="header">
 
-       <div class = "header-top">
+     <div class = "header-top">
         <a href="index.php" class="logo">
             <img src="<?php echo $logo_image; ?>" alt="Logo du site"/>
         </a>
@@ -61,10 +62,11 @@ else {
         </figure>
 
         <ul>
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="meteo.php">Météo</a></li>
-            <li><a href="stat.php">Statistique</a></li>
-            <li><a href="tech.php">Tech</a></li>
+            <li><a href="index.php"><i class="fas fa-home" style= "color:white"></i> Accueil</a></li>
+            <li><a href="meteo.php"><i class="fas fa-cloud-sun-rain" style= "color:white"></i> Prévision</a></li>
+            <li><a href="stat.php"><i class="fas fa-chart-line" style="color: white"></i> Statistique</a></li>
+            <li><a href="contact.php"><i class="fas fa-envelope" style= "color: white"></i> Contact</a></li>
+
         </ul>
     </nav>
 </header>

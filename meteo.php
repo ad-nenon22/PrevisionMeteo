@@ -146,13 +146,13 @@ if (isset($_GET['ville_nom'])) {
 <section>
 
 <div class="meteo-conteneur">
+
     <div class="meteo-intro">
         <h2>Prévisions Météorologiques Nationales</h2>
-    <p> Naviguez par région, explorez notre carte interactive ou saisissez directement le nom de votre ville pour consulter les conditions actuelles ainsi que les prévisions détaillées sur 5 jours. 
+       <p> Naviguez par région, explorez notre carte interactive ou saisissez directement le nom de votre ville pour consulter les conditions actuelles ainsi que les prévisions détaillées.</p>
 </div>
     </div>
 
-    
 
     <!-- Onglets de navigation -->
     <div class="onglets-navigation">
@@ -222,8 +222,8 @@ if (isset($_GET['ville_nom'])) {
 
     <div id="carte-interactive" class="contenu-onglet" <?php echo ($onglet_actif != 'carte-interactive') ? 'style="display: none;"' : ''; ?>>
         <div class="france-map-container">
-            <img src="images/regions.png" alt="Carte des régions de France" usemap="#image-map" id="main-france-map">
-            <map name="image-map" id="france-map">
+            <img src="images/regions.png" alt="Carte des régions de France" usemap="#image-map" id="main-france-map"/>
+            <map name="image-map" id="france-map"/>
                
                 <!-- Île-de-France -->
                 <area shape="poly" coords="318,131,311,136,304,139,308,149,310,162,318,174,329,188,345,191,349,202,362,202,376,189,392,184,389,175,399,166,392,156,386,147,378,138,372,138,363,137,350,138,345,131,333,129,325,130" alt="Île-de-France" href="?region=11" title="Île-de-France">
@@ -253,10 +253,10 @@ if (isset($_GET['ville_nom'])) {
                 <area shape="poly" coords="197,280,207,319,183,325,181,340,176,354,175,361,197,397,174,383,178,394,170,414,179,431,181,439,170,445,166,458,161,496,145,522,158,534,166,544,179,551,188,554,198,561,207,553,216,547,218,535,227,527,217,517,212,505,216,491,226,486,253,478,273,468,280,456,292,432,301,417,314,416,328,416,334,409,343,390,352,390,351,372,346,359,355,350,349,333,338,321,327,320,310,323,293,324,281,313,274,305,264,288,260,278,241,277,233,270,215,272" alt="Nouvelle-Aquitaine" href="?region=75" title="Nouvelle-Aquitaine">
 
                 <!-- Occitanie -->
-                <area shape="poly"coords="211,555,227,569,246,572,254,570,256,561,282,569,295,572,314,582,317,588,331,593,341,595,353,598,365,591,375,588,375,559,396,533,429,512,436,522,444,507,454,501,460,488,466,483,455,472,450,460,438,465,424,449,404,425,392,418,380,425,376,436,363,423,351,436,333,439,328,423,318,417,299,416,294,430,276,444,281,462,273,471,259,477,246,484,232,487,225,491,220,496,218,506,224,514,224,528,222,537,214,546" alt="Occitanie" href="?region=76" title="Occitanie">
+                <area shape="poly" coords="211,555,227,569,246,572,254,570,256,561,282,569,295,572,314,582,317,588,331,593,341,595,353,598,365,591,375,588,375,559,396,533,429,512,436,522,444,507,454,501,460,488,466,483,455,472,450,460,438,465,424,449,404,425,392,418,380,425,376,436,363,423,351,436,333,439,328,423,318,417,299,416,294,430,276,444,281,462,273,471,259,477,246,484,232,487,225,491,220,496,218,506,224,514,224,528,222,537,214,546" alt="Occitanie" href="?region=76" title="Occitanie">
 
                 <!-- Auvergne-Rhône-Alpes -->
-                <area shape="poly"coords="342,318,357,344,349,361,351,385,349,404,337,404,332,419,343,437,356,427,366,423,374,427,381,423,392,420,414,427,419,440,441,461,459,462,479,463,492,468,508,469,495,451,501,440,511,433,521,421,531,420,532,403,550,403,566,393,568,386,558,366,553,359,560,349,551,338,549,318,536,325,532,334,513,337,518,320,502,327,493,326,477,315,470,316,466,325,459,334,448,333,434,335,419,331,420,322,412,313,403,303,396,304,374,299,359,302,356,312" alt="Auvergne-Rhône-Alpes" href="?region=84" title="Auvergne-Rhône-Alpes">
+                <area shape="poly" coords="342,318,357,344,349,361,351,385,349,404,337,404,332,419,343,437,356,427,366,423,374,427,381,423,392,420,414,427,419,440,441,461,459,462,479,463,492,468,508,469,495,451,501,440,511,433,521,421,531,420,532,403,550,403,566,393,568,386,558,366,553,359,560,349,551,338,549,318,536,325,532,334,513,337,518,320,502,327,493,326,477,315,470,316,466,325,459,334,448,333,434,335,419,331,420,322,412,313,403,303,396,304,374,299,359,302,356,312" alt="Auvergne-Rhône-Alpes" href="?region=84" title="Auvergne-Rhône-Alpes">
 
                 <!-- Provence-Alpes-Côte d'Azur -->
                 <area shape="poly" coords="458,466,467,483,455,499,445,516,459,524,471,523,481,523,497,530,520,539,541,540,553,536,554,521,572,511,584,498,595,483,598,475,586,473,570,467,558,448,559,435,562,431,552,417,542,406,533,409,536,417,526,421,518,428,510,435,503,445,498,455,507,467,489,468,481,467,466,464" alt="Provence-Alpes-Côte d'Azur" href="?region=93" title="Provence-Alpes-Côte d'Azur">
@@ -365,6 +365,119 @@ if (isset($_GET['ville_nom'])) {
             </div>
         </div>
         
+
+
+<!-- Remplacer le formulaire de sélection de jours par un bouton pour les détails horaires -->
+<div class="details-horaires-toggle">
+    <button id="toggle-horaire" class="bouton-toggle">
+        <?php echo (isset($_GET['details_horaires']) && $_GET['details_horaires'] == '1') ? 'Masquer les détails horaires' : 'Afficher les détails heure par heure'; ?>
+    </button>
+</div>
+
+
+<!-- Section pour les détails horaires -->
+<?php if (isset($_GET['details_horaires']) && $_GET['details_horaires'] == '1' && isset($previsions['list'])): ?>
+<div class="meteo-horaire">
+    <h3>Prévisions heure par heure pour aujourd'hui</h3>
+    
+    <div class="horaire-liste">
+        <?php 
+        $jour_actuel = date('Y-m-d');
+        $heures_affichees = 0;
+        
+        foreach ($previsions['list'] as $prevision) {
+            $heure_date = date('Y-m-d', $prevision['dt']);
+            
+            // N'afficher que les prévisions pour aujourd'hui
+            if ($heure_date == $jour_actuel) {
+                $heure = date('H:i', $prevision['dt']);
+        ?>
+        <div class="prevision-heure">
+            <div class="heure"><?php echo $heure; ?></div>
+            <img src="https://openweathermap.org/img/wn/<?php echo $prevision['weather'][0]['icon']; ?>@2x.png" 
+                 alt="<?php echo $prevision['weather'][0]['description']; ?>">
+            <div class="temperature"><?php echo round($prevision['main']['temp']); ?>°C</div>
+            <div class="details-heure">
+                <div class="detail-heure">
+                    <span class="label">Ressenti</span>
+                    <span class="valeur"><?php echo round($prevision['main']['feels_like']); ?>°C</span>
+                </div>
+                <div class="detail-heure">
+                    <span class="label">Humidité</span>
+                    <span class="valeur"><?php echo $prevision['main']['humidity']; ?>%</span>
+                </div>
+                <div class="detail-heure">
+                    <span class="label">Vent</span>
+                    <span class="valeur"><?php echo round($prevision['wind']['speed'] * 3.6); ?> km/h</span>
+                </div>
+                <?php if (isset($prevision['rain']['3h'])): ?>
+                <div class="detail-heure">
+                    <span class="label">Pluie (3h)</span>
+                    <span class="valeur"><?php echo $prevision['rain']['3h']; ?> mm</span>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php
+                $heures_affichees++;
+            }
+            
+            // Si pas de prévisions pour aujourd'hui, afficher celles de demain
+            if ($heures_affichees == 0 && $heure_date > $jour_actuel) {
+                // Afficher un message indiquant qu'on montre demain
+                echo '<div class="message-info">Pas de prévisions restantes pour aujourd\'hui. Voici les prévisions pour demain :</div>';
+                // Et sortir de cette condition pour afficher les données
+                break;
+            }
+        }
+        
+        // Si aucune prévision n'a été affichée, montrer les premières disponibles
+        if ($heures_affichees == 0) {
+            $compteur = 0;
+            foreach ($previsions['list'] as $prevision) {
+                if ($compteur >= 8) break; // Limiter à 8 prévisions
+                
+                $heure = date('H:i', $prevision['dt']);
+                $jour = date('d/m', $prevision['dt']);
+        ?>
+        <div class="prevision-heure">
+            <div class="heure"><?php echo $heure; ?> <span class="jour-prevision"><?php echo $jour; ?></span></div>
+            <img src="https://openweathermap.org/img/wn/<?php echo $prevision['weather'][0]['icon']; ?>@2x.png" 
+                 alt="<?php echo $prevision['weather'][0]['description']; ?>">
+            <div class="temperature"><?php echo round($prevision['main']['temp']); ?>°C</div>
+            <div class="details-heure">
+                <div class="detail-heure">
+                    <span class="label">Ressenti</span>
+                    <span class="valeur"><?php echo round($prevision['main']['feels_like']); ?>°C</span>
+                </div>
+                <div class="detail-heure">
+                    <span class="label">Humidité</span>
+                    <span class="valeur"><?php echo $prevision['main']['humidity']; ?>%</span>
+                </div>
+                <div class="detail-heure">
+                    <span class="label">Vent</span>
+                    <span class="valeur"><?php echo round($prevision['wind']['speed'] * 3.6); ?> km/h</span>
+                </div>
+                <?php if (isset($prevision['rain']['3h'])): ?>
+                <div class="detail-heure">
+                    <span class="label">Pluie (3h)</span>
+                    <span class="valeur"><?php echo $prevision['rain']['3h']; ?> mm</span>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php
+                $compteur++;
+            }
+        }
+        ?>
+    </div>
+</div>
+<?php endif; ?>
+
+
+
+
          <!-- Affichage de la météo journalière sur 7 jours -->
         <?php if ($meteo_journaliere && isset($meteo_journaliere['daily'])): ?>
         <div class="meteo-journaliere">
@@ -605,6 +718,32 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('ouvert');
         });
     });
+});
+</script>
+
+<script>
+// Gestion du bouton pour afficher/masquer les détails horaires
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggle-horaire');
+    
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function() {
+            // Récupérer l'URL actuelle
+            let url = new URL(window.location.href);
+            let params = new URLSearchParams(url.search);
+            
+            // Inverser l'état actuel
+            if (params.has('details_horaires') && params.get('details_horaires') === '1') {
+                params.set('details_horaires', '0');
+            } else {
+                params.set('details_horaires', '1');
+            }
+            
+            // Mettre à jour l'URL et recharger la page
+            url.search = params.toString();
+            window.location.href = url.toString();
+        });
+    }
 });
 </script>
 

@@ -33,14 +33,21 @@ require "include/header.inc.php";
     </section>
     
     <section class="lang">
-        <span id="lang">
-            <a href="index.php?lang=fr">
-                <img src="images/fr.png" alt="drapeau français" style="width: 20px; height: 20px;cursor: pointer; border: 1px solid #eee;">
-            </a>
-            <a href="index.php?lang=en">
-                <img src="images/uk.png" alt="drapeau US" style="width: 20px;height: 20px;cursor: pointer; border: 1px solid #eee;">
-            </a>
-        </span>
+
+         <div class="services-lang">
+
+        <h2>Nos services</h2>
+    
+    <span id="lang-switch">
+        <a href="index.php?lang=fr">
+            <img src="images/fr.png" alt="drapeau français" style="width: 20px; height: 20px; cursor: pointer; border: 1px solid #eee;">
+        </a>
+        <a href="index.php?lang=en">
+            <img src="images/uk.png" alt="drapeau US" style="width: 20px; height: 20px; cursor: pointer; border: 1px solid #eee;">
+        </a>
+    </span>
+</div>
+        
         <?php
         if(isset($_GET["lang"]) && !empty($_GET["lang"]) && $_GET["lang"]==="en"){
             $lang="include/english.inc.php";
@@ -49,37 +56,36 @@ require "include/header.inc.php";
         }
         require "$lang";
         ?>    
-        <span>
-        <h2>Planifiez votre journée avec précision</h2>
 
-        </span>
     </section>
     
-    <section class="educational-content">
+    <section>
+
         <h2>Comprendre les phénomènes climatique</h2>
+
         <div class="articles">
             <article>
                 <div class="icon"><img src="images/icon3.png" alt="Anticyclone"></div>
-                <h3>Un anticyclone ?</h3>
-                <p>Découvrez comment les anticyclones influencent notre météo quotidienne.</p>
+                <h3>Un anticyclone </h3>
+                <p>Découvrez l'infuence des anticyclones sur la météo.</p>
                 <a href="actualite.php">Lire plus</a>
             </article>
             <article>
                 <div class="icon"><img src="images/icon4.png" alt="Orage"></div>
-                <h3>Les orages ?</h3>
-                <p>Un phénomène fascinant qui résulte d'une combinaison unique de facteurs.</p>
+                <h3>Les orages </h3>
+                <p>Un phénomène fascinant qui résulte d'un unique de facteurs.</p>
                 <a href="actualite.php">Lire plus</a>
             </article>
             <article>
                 <div class="icon"><img src="images/icon2.png" alt="Tempête de neige"></div>
                 <h3>Tempêtes de neige</h3>
-                <p>Découvrez pourquoi certaines régions sont plus sujettes aux tempêtes de neige.</p>
+                <p>Découvrez pourquoi certaines régions sont plus touchées.</p>
                 <a href="actualite.php">Lire plus</a>
             </article>
             <article>
                 <div class="icon"><img src="images/icon1.png" alt="Tempête de neige"></div>
                 <h3>La Canicule !</h3>
-                <p>Découvrez pourquoi certaines régions sont plus exposées aux vagues de chaleur intenses.</p>
+                <p>Découvrez pourquoi certaines régions sont plus exposées.</p>
                 <a href="actualite.php">Lire plus</a>
             </article>
         </div>
